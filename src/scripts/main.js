@@ -1,24 +1,14 @@
-console.log("Welcome to the main module")
+console.log("Welcome to the main module");
 
 import { createPlan } from "./plan.js";
-import { createAsparagus } from "./seeds/asparagus.js";
-import { createCorn } from "./seeds/corn.js";
-import { createPotato } from "./seeds/potato.js"
-import { createSoybean } from "./seeds/soybean.js"
-import { createSunflower } from "./seeds/sunflower.js"
-import { createWheat } from "./seeds/wheat.js"
-import { addPlant, usePlants } from "./field.js"
+import { usePlants } from "./field.js";
+import { plantSeeds } from "./tractor.js";
+import { harvestPlants } from "./harvester.js";
 
 const yearlyPlan = createPlan();
-const asparagusSeed = createAsparagus();
-const cornSeed = createCorn();
-const potatoSeed = createPotato();
-const soybeanSeed = createSoybean();
-const sunflowerSeed = createSunflower();
-const wheatSeed = createWheat();
 
-addPlant(cornSeed);
+plantSeeds(yearlyPlan);
 
-const seeds = usePlants();
+const plantUsage = usePlants();
 
-console.log(seeds);
+console.log(harvestPlants(plantUsage))
